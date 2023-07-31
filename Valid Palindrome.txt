@@ -1,0 +1,18 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        list1=[]
+        if(len(s)==0):
+            return True
+        for i in s:
+            if(i.isalnum()):
+                list1.append(i.lower())
+        if(len(list1)==1):
+            return True
+        start=0
+        end=len(list1)-1
+        while(start<=end):
+            if(list1[start]!=list1[end]):
+                return False
+            start+=1
+            end-=1
+        return True

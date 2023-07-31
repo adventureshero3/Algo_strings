@@ -1,0 +1,23 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        if n == 1:
+            return "1"
+
+        prev_seq = "1"
+        for i in range(2, n + 1):
+            current_seq = ""
+            count = 1
+            prev_char = prev_seq[0]
+
+            for char in prev_seq[1:]:
+                if char == prev_char:
+                    count += 1
+                else:
+                    current_seq += str(count) + prev_char
+                    prev_char = char
+                    count = 1
+
+            current_seq += str(count) + prev_char
+            prev_seq = current_seq
+
+        return prev_seq
